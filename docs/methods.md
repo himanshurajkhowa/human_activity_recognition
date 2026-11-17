@@ -2,11 +2,11 @@
 
 ## Data and windowing
 
-UCI HAPT was used for the first pipeline experiments. The main benchmark uses RealWorld HAR with walking, running, sitting, standing, lying, upstairs and downstairs. Jumping is outside this seven-class task. The benchmark uses thigh and waist recordings. The dataset itself has seven body locations.
+The first pipeline experiments used UCI HAPT. The RealWorld HAR benchmark uses thigh and waist recordings labeled walking, running, sitting, standing, lying, upstairs or downstairs.
 
 Acceleration XYZ (m/s², including gravity) and angular velocity XYZ (rad/s) are joined by recorded time. The first acceleration timestamp is rounded up to a 20 ms grid. Exact readings are kept. Linear interpolation uses the closest readings on either side if their timestamps are at most 200 ms apart and they belong to the same uninterrupted segment. The implementation leaves unsupported points missing.
 
-Each input has 125 readings per channel. Its first and last readings are 2.48 seconds apart. The first prediction is scheduled 2.5 seconds after the grid starts, with a new request every 500 ms. A usable window needs support for all six channels through the prediction time. The latest recorded endpoint needed for interpolation must arrive within 100 ms of that time. This is an input availability rule on the recorded clock. Phone runtime and physical sensor synchronization need separate measurements.
+Each input has 125 readings per channel. Its first and last readings are 2.48 seconds apart. The first prediction is scheduled 2.5 seconds after the grid starts, with a new request every 500 ms. All six channels need support at every grid point. The window must stay within a single uninterrupted segment for each sensor. The latest recorded endpoint needed for interpolation must arrive within 100 ms of that time. This is an input availability rule on the recorded clock. Phone runtime and physical sensor synchronization need separate measurements.
 
 ## Features and models
 
