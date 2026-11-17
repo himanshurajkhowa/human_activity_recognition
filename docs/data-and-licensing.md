@@ -6,4 +6,4 @@ The earlier UCI HAPT dataset has a CC BY 4.0 license on its official page. Its r
 
 This release contains Python source and aggregate results. The example generates its own sensor signals. Exact historical replay needs the original fitted model states, split and row records, and the prepared data bank. The public examples run with generated inputs or the included aggregate counts.
 
-The software license for this source release is pending an owner decision. The dependencies are installed separately and retain their own licenses. Dataset permissions are separate from any future license for the project code.
+The original code is available under the MIT License. The dependencies are installed separately and retain their own licenses. Dataset terms apply separately. [MIT License](../LICENSE)
